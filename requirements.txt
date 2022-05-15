@@ -1,6 +1,6 @@
 appdirs==1.4.4
 asgiref==3.4.1
-
+rest_framework
 chardet==4.0.0
 
 Django==3.2.6
