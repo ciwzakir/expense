@@ -1,0 +1,213 @@
+{% load static %} 
+{% block title %}
+{% endblock %}
+
+<section class="bill_header">
+    <div class="container">
+        <div class="bill_header">
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <h5>BAF F. A-115</h5>
+                </div>
+            </div><!-- row -->
+            <div class="row">
+                <div class="col-md-12 text-center mb-2">
+                    <h4><u>CONTINGENT BILL</u></h4>
+                </div>
+            </div><!-- row -->
+            <div class="row">
+                <div class="col-md-6 text-left">
+                    <p class='mr-2'>Reg Page No : ................../ Ser No : ................./</p>
+                </div>
+                <div class="col-md-6">
+                    Cash A/C Vrs No : ........................../ <span class="voucher_head_color">
+          {{single_expenditure.expBudgetCode.vrsHead}}
+        </span> /{{lp_Auth_choice}}
+                </div>
+            </div><!-- row -->
+            <div class="row">
+                <span class="voucher_head_color"></span>
+                <div class="col-md-6 text-left">
+                    <span class="voucher_head_color"></span>
+                    <div class="row">
+                        <span class="voucher_head_color"></span>
+                        <div class="col-4">
+                            <span class="voucher_head_color"></span>
+                            <p><span class="voucher_head_color">LP No</span></p>
+                        </div>
+                        <div class="col-.1">
+                            <span class="voucher_head_color">:</span>
+                        </div>
+                        <div class="col-7.9 pl-2">
+                            <span class="voucher_head_color"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 text-left">
+                    <span class="voucher_head_color"></span>
+                    <div class="row">
+                        <span class="voucher_head_color"></span>
+                        <div class="col-2">
+                            <span class="voucher_head_color"></span>
+                            <p><span class="voucher_head_color">Code</span></p>
+                        </div>
+                        <div class="col-.1">
+                            <span class="voucher_head_color">:</span>
+                        </div>
+                        <div class="col-9.9 pl-4">
+                            <span class="voucher_head_color"></span>
+                            <h5 class="seven-digit-code"><span class="voucher_head_color"><strong>{{single_expenditure.expBudgetCode.digits7}}</strong></span></h5>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- row -->
+            <div class="row">
+                <span class="voucher_head_color"></span>
+                <div class="col-md-6 text-left">
+                    <span class="voucher_head_color"></span>
+                    <div class="row">
+                        <span class="voucher_head_color"></span>
+                        <div class="col-4">
+                            <span class="voucher_head_color"></span>
+                            <p><span class="voucher_head_color">Total Allotment</span></p>
+                        </div>
+                        <div class="col-.1">
+                            <span class="voucher_head_color">:</span>
+                        </div>
+                        <div class="col-7.9 pl-2">
+                            <span class="voucher_head_color">Tk</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 text-left">
+                    <span class="voucher_head_color"></span>
+                    <div class="row">
+                        <span class="voucher_head_color"></span>
+                        <div class="col-2">
+                            <span class="voucher_head_color"></span>
+                            <p><span class="voucher_head_color">Section</span></p>
+                        </div>
+                        <div class="col-.1">
+                            <span class="voucher_head_color">:</span>
+                        </div>
+                        <div class="col-9.9 pl-4">
+                            <span class="voucher_head_color"><strong> {{single_expenditure.consumerUnit}} </strong></span>
+                        </div><span class="voucher_head_color"></span>
+                    </div>
+                </div>
+            </div><!-- row -->
+            <div class="row">
+                <span class="voucher_head_color"></span>
+                <div class="col-md-12 text-left">
+                    <span class="voucher_head_color"></span>
+                    <div class="row">
+                        <span class="voucher_head_color"></span>
+                        <div class="col-2">
+                            <span class="voucher_head_color"></span>
+                            <p><span class="voucher_head_color">Expenditure</span></p><span class="voucher_head_color"></span>
+                        </div>
+                        <div class="col-.1">
+                            <span class="voucher_head_color">:</span>
+                        </div>
+                        <div class="col-9.9 pl-2">
+                            <span class="voucher_head_color">Tk</span>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- row -->
+            <div class="row">
+                <span class="voucher_head_color"></span>
+                <div class="col-md-6 text-left">
+                    <span class="voucher_head_color"></span>
+                    <div class="row">
+                        <span class="voucher_head_color"></span>
+                        <div class="col-4">
+                            <span class="voucher_head_color"></span>
+                            <p><span class="voucher_head_color">Balance</span></p>
+                        </div>
+                        <div class="col-.1">
+                            <span class="voucher_head_color">:</span>
+                        </div>
+                        <div class="col-7.9 pl-2">
+                            <span class="voucher_head_color">Tk</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 text-left">
+                    <span class="voucher_head_color"></span>
+                    <div class="row">
+                        <span class="voucher_head_color"></span>
+                        <div class="col-2">
+                            <span class="voucher_head_color"></span>
+                            <p><span class="voucher_head_color"></span></p>
+                        </div>
+                        <div class="col-.1">
+                            <span class="voucher_head_color"></span>
+                        </div>
+                        <div class="col-9.9 pl-4">
+                            <span class="voucher_head_color"></span>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- row -->
+            <div class="row">
+                <span class="voucher_head_color"></span>
+                <div class="col-md-12 text-left">
+                    <span class="voucher_head_color"></span>
+                    <div class="row">
+                        <span class="voucher_head_color"></span>
+                        <div class="col-2">
+                            <span class="voucher_head_color"></span>
+                            <p><span class="voucher_head_color">Expenditure</span></p>
+                        </div>
+                        <div class="col-.1">
+                            <span class="voucher_head_color">:</span>
+                        </div>
+                        <div class="col-9.9 pl-2">
+                            <span class="voucher_head_color">Supply & Service, Repair & Maint and Assets Collection : <strong> {{single_expenditure.expBudgetCode.heading}}</strong></span>
+                        </div><span class="voucher_head_color"></span>
+                    </div>
+                </div>
+            </div><!-- row -->
+            <div class="row">
+                <span class="voucher_head_color"></span>
+                <div class="col-md-12 text-left">
+                    <span class="voucher_head_color"></span>
+                    <div class="row">
+                        <span class="voucher_head_color"></span>
+                        <div class="col-2">
+                            <span class="voucher_head_color"></span>
+                            <p><span class="voucher_head_color">Fiscal Year</span></p>
+                        </div>
+                        <div class="col-.1">
+                            <span class="voucher_head_color">:</span>
+                        </div>
+                        <div class="col-9.9 pl-2">
+                            <span class="voucher_head_color"></span>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- row -->
+            <div class="row">
+                <span class="voucher_head_color"></span>
+                <div class="col-md-12 text-left">
+                    <span class="voucher_head_color"></span>
+                    <div class="row">
+                        <span class="voucher_head_color"></span>
+                        <div class="col-2">
+                            <span class="voucher_head_color"></span>
+                            <p><span class="voucher_head_color">Auth</span></p>
+                        </div>
+                        <div class="col-.1">
+                            <span class="voucher_head_color">:</span>
+                        </div>
+                        <div class="col-9.9 pl-2">
+                            <span class="voucher_head_color"></span>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- row -->
+        </div><!-- bill_header -->
+    </div>
+</section> <!-- Contingent Header ends -->
+

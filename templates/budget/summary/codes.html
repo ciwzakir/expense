@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %} Fun {% endblock %}
+{% block content %}
+
+<div class="container">
+<div class="hrline">
+  <h4 style="text-align:center; margin-bottom:50px;"> Code wise subtotal of Expenditure list </h4>
+  <hr style="height:2px;border-width:0;color:gray;background-color:rgb(12, 233, 211); margin-left: 300px; margin-right: 300px; margin-top: 5px;margin-bottom: 60px;">
+</div>
+
+<table class="table text-center table-bordered table-dark">
+<thead>
+  <tr>
+ <th>Budgetary Codes</th>
+<th>Tk</th>
+<th>Remarks</th>
+  </tr>
+</thead>
+  <tbody>
+    {% for exp in codewisesbutotal %}
+    
+    <tr>
+        <th class="text-left">{{exp.invoices__expcode__name}}</th>
+        <td scope="row">{{exp.sumofexp}}</td>
+        <td>Comments</td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <th  >Grand Total of expenditure</th>
+        <td>{{gtoftotalexp.total}}</td>
+     
+    </tr>
+</tbody>
+</table>
+</div>
+
+{% endblock %}

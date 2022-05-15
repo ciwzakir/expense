@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %} Fun {% endblock %}
+{% block content %}
+
+<div class="container headertop">
+  <h4 style="text-align:center; margin-bottom:10px;" class="text-uppercase"> Expenditure : sub total list as per Suppliers </h4>
+  <hr style="height:2px;border-width:0;color:gray;background-color:rgb(12, 233, 211); margin-left: 300px; margin-right: 300px; margin-top:5 auto; margin-bottom: 25px;">
+
+</div>
+
+
+<div class="container">
+  <form method="POST">
+    {% csrf_token %}
+    {{subtotal_expfilters.form}}
+    <button class="btn btn-primary mb-2" type="submit"> Search</button>
+  </form>
+</div>
+  
+<div class="container">
+<table class="table text-center table-bordered table-dark">
+<thead>
+  <tr>
+ <th>Name of Supliers</th>
+ <th>e-TIN No</th>
+<th>Tk</th>
+<th>Remarks</th>
+  </tr>
+</thead>
+
+  <tbody>
+    {% for exp in subtotalbysupplier %}
+    
+    <tr>
+      <td class="text-left">{{exp.invoices__itemsupplier__name}}</td>
+      <td>{{exp.invoices__itemsupplier__tin_no}}</td>
+      <td scope="row">{{exp.sumofexp}}</td>
+      <td>Comments</td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <th >Grand Total of expenditure</th>
+        <th ></th>
+        <td>{{gtoftotalexp.total}}</td>
+     
+    </tr>
+</tbody>
+
+</table>
+</div>
+{% endblock %}

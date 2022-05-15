@@ -1,0 +1,21 @@
+
+{% load static %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+
+<div class="jumbotron">
+    <h3> Sub Total and  Catefory wise Annotate</h3>
+	{% for category in categories %}
+    <tr>
+        <td><b>{{ category.Category }}</b></td>
+        <td><b>{{ category.total }}</b></td>
+    </tr>
+    {% for item in category.items_with_price %}
+        <tr>
+            <td>{{ item.Item }}</td>
+            <td>{{ item.total }}</td>
+        </tr>
+    {% endfor %}
+{% endfor %}
+</div>
+ {% endblock %}

@@ -1,0 +1,19 @@
+
+.title-top{
+  font-family: Helvetica;  
+  font-size: 50px;
+ }
+ 
+.title-top .sub2 {
+  color: #008B8B;
+}
+
+#bg {
+  padding: 50px 20px;
+  height:200px;
+  color: rgb(247, 241, 241);
+  background-repeat: no-repeat;
+  background-size:1800px 900px ;
+  background-attachment: fixed;
+  background-position:fixed;
+} 

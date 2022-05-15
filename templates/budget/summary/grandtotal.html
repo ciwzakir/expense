@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %} Fun {% endblock %}
+{% block content %}
+
+<div class="hrline">
+  <h4 style="text-align:center; margin-bottom:50px;"> Grand Total of Allotment and Expenditure  </h4>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md">
+      {{ granttotal.data }}
+    </div>
+    <div class="col-md">
+      {{ gtoftotalexp.total }}
+    </div>
+    <div class="col-md">
+      Remaining Balance :{{ balance }}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

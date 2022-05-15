@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Fun {% endblock %}
+{% block content %}
+
+<div class="container" id="bg" style="background-image: url('https://images.pexels.com/photos/220993/pexels-photo-220993.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');" >
+  <form method="POST">
+  {% csrf_token %}
+  {{subtotal_expfilters.form}}
+  <button class="btn btn-primary" type="submit"> Search</button>
+</form>
+</div>
+
+<div class="container mt-4 pt-4 pb-4">
+  <table class="table text-center table-bordered table-daaaark mt-4 mb-4 pt-4 pb-4">
+  <thead>
+    <tr>
+      <th scope="col"> {{invs}}</th>
+      <th scope="col"> Budget Codes</th>
+      <th scope="col"> Name of Supliers</th>
+      <th scope="col"> Departments</th>
+      <th scope="col">By Cheque or Cash </th>
+      <th colspan="3"> 
+     <table>
+      <thead>
+        <tr class="pt-4 pb-4">
+          <strong>
+            <u>Invoice Details</u>
+        </strong> </tr>
+        <tr class="bg-info pt-4 pb-4">
+          <th>Invoice No</th>
+          <th> Invoice Date</th>
+          <th> RV No</th>
+          <th>Amount</th>
+         </tr>
+         </thead>
+        </tr>
+      </thead>
+     </table>
+      </th>
+      <th scope="col">Subtotal</th>   
+      <th scope="col">Income TAX</th>   
+      <th scope="col">VAT</th>   
+      <th scope="col">Payable Amount</th>   
+    </tr>
+
+  </thead>
+  <tbody>
+   
+    {% for expense in expense_details  %}
+     <tr>
+        <td class="text-left">{{expense.sum}}</td>
+        <td class="text-left">{{expense.expcode__name}}</td>
+        <td class="text-left">{{expense.itemsupplier__name}}</td>
+        <td class="text-left">{{expense.consunit__name}}</td>
+        <td class="text-left">        
+          {% if expense.is_cheque == True %}
+          <h5 class='text-center mb-4'> <strong> PAID BY CHEQUE</strong></h5>
+          {% else %}
+         <h5 class='text-center  mb-2'> <strong> CASH PAYMENT</strong></h5>         
+         {% endif %}
+        </td> 
+         <td colspan="3">
+          <table>
+           <thead>
+         <tr>
+        
+            <tbody>
+              {% for invoice in expense.invs.all %}
+              <tr>  
+                <td>{{invoice}}</td>
+                <td> {{invoice.invoice_date |date:"D d M Y" }}</td>
+                <td>{{invoice.rv_no}}</td>
+                <td>{{amount}}</td>
+               
+             </tr>
+              {% endfor %}  
+
+            </tbody>
+          </table>
+   
+
+        <td class="text-left">{{expense.sumofexp}}</td>
+       
+          <td>{{expense.sumofexp}}  {{expense.invoices__taxrate}} </td>
+      
+        <td class="text-left"></td>
+        <td class="text-left">{{expense.sumofexp}}-({{expense.sumofexp}}*{{taxrate}})+ {{expense.sumofexp}}*{{vatrate}})</td>
+        <td >
+          <button type="button" class="btn btn-outline-info"> <a href=""> Edit  </a>  </button>
+        </td>      
+        <td >
+          <button type="button" class="btn btn-outline-info"> <a href="{{product.get_absolute_url}}"> View  </a>  </button>
+        </td> 
+     </tr>
+     {% endfor %}    
+   </tbody>
+</table>
+
+</div>
+
+
+{% endblock %}

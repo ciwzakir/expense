@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Fun {% endblock %}
+{% block content %}
+
+<div class="title-top text-uppercase ">
+  <div style="text-align:center; margin-left:-320px;" > Every</div>
+  <div class ="sub2" style="text-align:center; margin-bottom:50px;"> single  Allotment  </div>
+</div>
+
+<div class="container" id="bg" style="background-image: url('https://images.pexels.com/photos/220993/pexels-photo-220993.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');" >
+  <form method="POST">
+    {% csrf_token %}
+    {{my_filter.form}}
+    <button class="btn btn-primary mb-4" type="submit"> Search</button>
+</form>
+</div>
+
+
+<div class="container">
+
+  <table class="table table-responsive text-center table-bordered ">
+  <thead>
+    <tr>
+      <th scope="col">Code </th>
+      <th scope="col">Section/Unit</th>
+      <th scope="col">Date</th>
+      <th scope="col"> Amount  </th>
+      <th scope="col">Auth Letter</th>
+      <th scope="col">Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% if not allotments %}
+        <h2>Still there is no Allotments incurred</h2>
+     {% else %}
+    <tr>
+      {% for alt in page_obj %}
+      <td class="text-left ">{{ alt.altcode }}</th>
+      <td>{{alt.altunit}}</td>
+      <td>{{alt.allotedon}}</td>
+      <td>{{alt.altamount}}</td>
+      <td>{{alt.altauth}}</td>  
+      <td >
+        <button type="button" class="btn btn-outline-info"> <a href=""> Edit  </a>  </button>
+      </td>            
+     </tr>
+     {% endfor %}
+    {% endif %}
+    <tr>
+      <td colspan="3"> Grand Total All Codes =</td>
+      <td> {{ granttotal.data }}</td>
+     
+       
+    </tr>
+    </tbody>
+</table>
+
+{% for contact in page_obj %}
+
+{% endfor %}
+<div class="pagination">
+  <span class="step-links">
+      {% if page_obj.has_previous %}
+          <a href="?page=1">&laquo; First Page |</a>
+          <a href="?page={{ page_obj.previous_page_number }}">Previous |</a>
+      {% endif %}
+
+      <span class="current">
+          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+      </span>
+
+      {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}">Next |</a>
+          <a href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a>
+      {% endif %}
+  </span>
+</div> 
+
+
+<div class="hrline">
+  <hr style="height:2px;border-width:0;color:gray;background-color:rgb(12, 233, 211); margin-left: 300px; margin-right: 300px; margin-top: 60px;margin-bottom: 60px;">
+  <h4 style="text-align:center; margin-bottom:50px;"> Subtotal of Each Code  </h4>
+</div>
+
+
+    <table class="table text-center table-bordered table-dark">
+  <thead>
+    <tr>
+      
+      <th colspan="3"> Budget Code  </th>
+      <th scope="col">Amount</th>
+      <th scope="col">Comments</th>
+    
+    </tr>
+  </thead>
+  <tbody>
+      
+        {% for subtotal in subtotalforeach %}
+     <tr class="text-left  table-bordered">
+       <td  colspan="3">  {{ subtotal.altcode__name }}  </td>
+       <td class="text-right">  {{ subtotal.sumalt }}  </td>
+       <td>   </td>
+     </tr>
+     {% endfor %}
+  </tbody>
+</table>
+
+</div>
+ 
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

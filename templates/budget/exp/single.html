@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load static %} 
+{% block title %}
+{% endblock %}
+{% block content %}
+
+<div class="container"> 
+  {% include 'budget/exp/contingentheader.html' %}
+ </div>
+ <div class="container">
+   <table class="table-bordered mt-4">
+     <thead>
+      <tr class="text-center">
+        <th style="width: 10%">Bill No</th>
+        <th style="width: 15%">Bill Date</th>
+        <th style="width: 11%">Ext RV/ SIB</th>
+        <th style="width: 50%" colspan="2">Details</th>
+        <th style="width: 14%">Amount (Tk)</th>
+      </tr>
+       </thead>
+       <tbody>
+        <tr  height=500px>
+          
+        </tr>
+        <tr class="text-right">
+          <td colspan="5">  Total = </td>
+          <td > 1111111</td>
+        </tr>
+        <tr>
+          <td> Page No</td>
+          <td></td>
+          <td colspan="2"> Income TAX</td>
+          <td> Rate</td> 
+          <td> Amount</td> 
+        </tr>
+        <tr>
+          <td> Ser No</td>
+          <td></td>
+          <td colspan="2"> VAT</td>
+          <td> Rate</td> 
+          <td> Amount</td> 
+        </tr>
+        <tr class="text-right">
+          <td colspan="5">  Paid Amount = </td>
+          <td > 1111111</td>
+        </tr>
+              <tr>
+          <td colspan="6">   Inwords: Twenty Crore Fifty nine thousand six hundred forty three and paisa eighty nine only. </td>
+          </tr>
+        <tr>
+          <td colspan="6"> Certified that the above mentioned expenditure is bonafile and in fabor of the country. </td>
+          </tr>
+        <tr>
+          <td colspan="6"> Prepared By :  </td>
+          </tr>
+        <tr>
+          <td colspan="6"> Checked By:  </td>
+          </tr>
+       </tbody>
+       <tfoot>
+         <tr>
+           <td colspan="2">
+             {{ single_expenditure.is_cheque}} <br/>
+             Name:     <br/>
+             Rank:     <br/>
+             Accountant Officer<br/>
+            <br/>
+
+           </td>
+           <td colspan="2">
+             COUNTERSIGNED
+             Name:     <br/>
+             Name:     <br/>
+             Rank:     <br/>
+             <td colspan="2">
+              {% if single_expenditure.is_cheque == True %}
+             <h5 class='text-center mb-4'> <strong> PAID BY CHEQUE</strong></h5>
+             <p class='mt-4'> Sign : ................................................</p>
+             <p class='mt-2'> CDC  : ................................................</p>
+             <p class='mt-2'> Date : ...............................................</p>
+             {% else %}
+            <h5 class='text-center  mb-2'> <strong> CASH RECEIVED BY</strong></h5>
+            <p class='mt-2'> Sign :  .................................................</p>
+            <p class='mt-2'> Name : ...................................................</p>
+            <p class='mt-2'> Rank :  ..................................................</p>
+            <p class='mt-2'> BD/ :  ....................................................</p>
+            <p class='mt-2'> Date :  ...................................................</p>            
+            {% endif %}
+            
+            
+            </td>
+         </tr>
+       </tfoot>
+   </table>
+ </div>
+
+
+{% endblock %}
