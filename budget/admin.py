@@ -37,7 +37,7 @@ class ExpenditureAdmin(admin.ModelAdmin):
     inlines =[
         InvoiceInline,  
     ]
-    list_display = ['expcode','itemsupplier', 'consunit','is_cheque','updated_at', 'sum']
+    list_display = ['expcode','itemsupplier', 'consunit','is_cheque','updated_at']
     list_filter = ['expcode','itemsupplier', 'consunit','is_cheque']
     prepopulated_fields = {'slug': ('title',)}
 
